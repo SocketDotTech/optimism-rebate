@@ -1,0 +1,20 @@
+{
+  "name": "op-rebate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "buildMerkleRoot": "ts-node -e \"import { buildMerkleRoot } from './scripts/rebate'; buildMerkleRoot();\"",
+    "bulidMerkleProof": "ts-node -e \"import { bulidMerkleProof } from './scripts/rebate'; bulidMerkleProof(process.argv[1]);\"",
+    "getProof": "jest"
+  },
+  "dependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "axios": "^1.4.0",
+    "ethers": "5.7.2",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.3.10",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
