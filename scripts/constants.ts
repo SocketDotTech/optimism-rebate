@@ -1,38 +1,174 @@
-export const addresses = [
+export const merkleRewardsContract = "0x45362caA305D15A12D2AC781049069d87Dc6372c"
+export const merkleRewardsContractAbi = [
   {
-    address: '0x349021deb209bd7100873496b841f5dcd2b1e1e0',
-    claimableAmount: 19.090488081872586,
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "totalAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Claimed",
+    "type": "event"
   },
   {
-    address: '0x4dacd010e15e220bc6c5c3210d166505d2b6c63a',
-    claimableAmount: 40,
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "merkleRoot",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "totalRewards",
+        "type": "uint256"
+      }
+    ],
+    "name": "MerkleRootSet",
+    "type": "event"
   },
   {
-    address: '0x3822bbbd588fe86964c7751d6c6a6bd010927307',
-    claimableAmount: 12.760515425937374,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "claim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    address: '0xad1e0d4956e7996607056e3b3d1f3110864574a2',
-    claimableAmount: 36.170456905002574,
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "accounts",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "totalAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+      },
+      {
+        "internalType": "bool[]",
+        "name": "proofFlags",
+        "type": "bool[]"
+      }
+    ],
+    "name": "claimMultiple",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    address: '0xdaf0eb9f50238fec09ba4d7d26fc56ddfa814443',
-    claimableAmount: 40,
+    "inputs": [],
+    "name": "currentTotalRewards",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    address: '0x22bffefb6da1f90c7f8200381efb47f894d46c4c',
-    claimableAmount: 39.61805048952922,
+    "inputs": [],
+    "name": "merkleRoot",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    address: '0x157948ca8d794c9f8a874c516edec858a36245a4',
-    claimableAmount: 11.789852835584167,
+    "inputs": [],
+    "name": "rewardsToken",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    address: '0xe84c01208c4868d5615fccf0b98f8c90f460d2b6',
-    claimableAmount: 13.97354196055122,
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_merkleRoot",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalRewards",
+        "type": "uint256"
+      }
+    ],
+    "name": "setMerkleRoot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    address: '0xd36eb07487a6cc45fe835b01e78f9d6e429d9068',
-    claimableAmount: 40,
-  },
-];
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "withdrawn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

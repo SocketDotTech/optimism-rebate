@@ -1,7 +1,7 @@
-### Bulid Merkle Root
+### Set Merkle Root
 
-`yarn run buildMerkleRoot `
+`yarn setMerkleRoot `
 
-### Bulid Merkle Proof
+### Claim
 
-`yarn run bulidMerkleProof -- "{ \"address\": \"0x3xxxxxxxbbd588fe86964c7751d6c6a6bd010xxxx\", \"amount\": \"12.760515425937374\" }"`
+`yarn claim 0x35ef983c0d040e2deaefce5245f7193e01a8aaa8 100000`

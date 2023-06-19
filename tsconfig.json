@@ -26,6 +26,7 @@
     "skipLibCheck": true,
     "lib": ["ES2020.Promise", "es6"]
   },
-  "include": ["scripts"],
-  "exclude": ["node_modules/*", ".serverless", ".webpack"]
+  "include": ["./scripts", "./deploy"],
+  "exclude": ["node_modules/*", ".serverless", ".webpack"],
+  "files": ["./hardhat.config.ts"]
 }
