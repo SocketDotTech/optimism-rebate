@@ -172,3 +172,5 @@ export const merkleRewardsContractAbi = [
     "type": "function"
   }
 ]
+
+export const claimEventsEndPoint = `https://optimism-rebates.s3.amazonaws.com/claimData.json`
