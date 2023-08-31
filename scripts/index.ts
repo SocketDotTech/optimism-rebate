@@ -39,7 +39,7 @@ export async function claimAmount(address: string, amount: string) {
   console.log({amount});
   
 
-  const proof =  getMerkleProof(address, BigNumber.from(amount))
+  const proof = await getMerkleProof(address, BigNumber.from(amount))
   
   const contract = new Contract(merkleRewardsContract, merkleRewardsContractAbi, wallet);
 

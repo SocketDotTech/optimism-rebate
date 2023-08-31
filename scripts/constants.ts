@@ -1,4 +1,4 @@
-export const merkleRewardsContract = "0x45362caA305D15A12D2AC781049069d87Dc6372c"
+export const merkleRewardsContract = "0xEEce08925c33bC2316eF00ed4fb2e516D4Dff2a2"
 export const merkleRewardsContractAbi = [
   {
     "anonymous": false,

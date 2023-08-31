@@ -1,6 +1,5 @@
 import keccak256 from 'keccak256'
 import { MerkleTree } from 'merkletreejs'
-import  merkleTreeElements from "./addresses.json";
 import { BigNumber, Contract, getDefaultProvider, utils} from "ethers";
 import { merkleRewardsContract, merkleRewardsContractAbi, claimEventsEndPoint } from "./constants";
 import axios from 'axios';
@@ -9,11 +8,10 @@ import 'dotenv/config'
 
 const provider = getDefaultProvider(process.env.RPC_URL);
 
-const addresses = merkleTreeElements
 
 
 export async function getRootAndSum() {
-  const merkleTree = bulidAndGetMerkleTree()
+  const merkleTree = await bulidAndGetMerkleTree()
   
   const contract = new Contract(merkleRewardsContract, merkleRewardsContractAbi, provider);
   const currentMerkleRoot = await contract.merkleRoot()
@@ -54,7 +52,13 @@ export async function getRootAndSum() {
 }
 
 
-export function bulidAndGetMerkleTree() {  
+export async function bulidAndGetMerkleTree() {  
+  const addresses = await getClaimEvents()
+
+  if (!addresses) {
+    throw new Error("claim addresses not found");
+    
+  }
   const merkleTreeLeaves = addresses?.map(event => {
     return hashLeaf(event.address, BigNumber.from(event.claimableAmount))
   })
@@ -62,10 +66,10 @@ export function bulidAndGetMerkleTree() {
   return tree
 }
 
-export function getMerkleProof(address: string, amount: BigNumber) { 
+export async function getMerkleProof(address: string, amount: BigNumber) { 
     
   
-  const merkleTree = bulidAndGetMerkleTree()
+  const merkleTree = await bulidAndGetMerkleTree()
 
   const leaf = hashLeaf(address, amount)
   
